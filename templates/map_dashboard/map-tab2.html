@@ -253,6 +253,9 @@ $('#nav-tab4').click(function() {
 });
 
  $("#area-1").change(function(){
+  svg1.selectAll('*').remove();
+  svg2.selectAll('*').remove();
+  svg3.selectAll('*').remove();
   $.ajax({
         url : "{% url 'ajaxAreaTab2' %}", // the endpoint
         type : "POST", // http method
@@ -270,11 +273,6 @@ $('#nav-tab4').click(function() {
                         .append($('<option>', { value:value.timeperiod_id })
                         .text(value.timeperiod)); 
                 });
-
-                svg1.selectAll('*').remove();
-                svg2.selectAll('*').remove();
-                svg3.selectAll('*').remove();
-
                 var data_state = JSON.parse(response.context.data_level2);
                 var data2 = []
                 data_state.forEach(element => {
@@ -314,6 +312,9 @@ $('#nav-tab4').click(function() {
  });
 
       $("#indicator-1").change(function(){
+        svg1.selectAll('*').remove();
+        svg2.selectAll('*').remove();
+        svg3.selectAll('*').remove();
         $.ajax({
         url : "{% url 'ajaxIndicatorTab2' %}", // the endpoint
         type : "POST", // http method
@@ -342,11 +343,6 @@ $('#nav-tab4').click(function() {
                         .append($('<option>', { value:value.timeperiod_id })
                         .text(value.timeperiod)); 
                 }); 
-                
-                svg1.selectAll('*').remove();
-                svg2.selectAll('*').remove();
-                svg3.selectAll('*').remove();
-
                 var data_state = JSON.parse(response.context.data_level2);
                 var data2 = []
                 data_state.forEach(element => {
@@ -383,6 +379,9 @@ $('#nav-tab4').click(function() {
       });
 
       $("#subgroup-1").change(function(){
+        svg1.selectAll('*').remove();
+        svg2.selectAll('*').remove();
+        svg3.selectAll('*').remove();
         $.ajax({
         url : "{% url 'ajaxSubgroupTab2' %}", // the endpoint
         type : "POST", // http method
@@ -405,10 +404,6 @@ $('#nav-tab4').click(function() {
                         .append($('<option>', { value:value.timeperiod_id })
                         .text(value.timeperiod)); 
                 });   
-               
-                svg1.selectAll('*').remove();
-                svg2.selectAll('*').remove();
-                svg3.selectAll('*').remove();
 
                 var data_state = JSON.parse(response.context.data_level2);
                 var data2 = []
@@ -447,6 +442,9 @@ $('#nav-tab4').click(function() {
 
 
       $("#timeperiod-1").change(function(){
+        svg1.selectAll('*').remove();
+        svg2.selectAll('*').remove();
+        svg3.selectAll('*').remove();
         $.ajax({
         url : "{% url 'ajaxTimeperiodTab2' %}", // the endpoint
         type : "POST", // http method
@@ -462,10 +460,6 @@ $('#nav-tab4').click(function() {
 
              // remove the value from the input
            // console.log(json); // log the returned json to the console
-              
-                svg1.selectAll('*').remove();
-                svg2.selectAll('*').remove();
-                svg3.selectAll('*').remove();
 
                 var data_state = JSON.parse(response.context.data_level2);
                 var data2 = []
@@ -675,6 +669,12 @@ else{
       }
   renderSelectedarea(geojson.features, geojson, svg); 
   }
+  else{
+    svg.append('text').text('No data: please select another survey')
+    .attr('x', "20%")
+    .attr('y', "10%")
+    .attr('fill', 'black')
+  }
  }
   
 
@@ -708,6 +708,12 @@ else{
       }
       render(json.features, svg);
     }); 
+  }
+  else{
+    svg.append('text').text('No data: please select another survey')
+    .attr('x', "20%")
+    .attr('y', "10%")
+    .attr('fill', 'black')
   }
  }
 
