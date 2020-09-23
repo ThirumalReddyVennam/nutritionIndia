@@ -1,0 +1,76 @@
+{% extends 'map_dashboard/base.html'%}
+
+{% block extra_css %}
+<style>
+ body {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.mapdiv{
+    width: 100%;
+    height: 100%;
+   
+}
+.selection{
+    align-content: center;
+}
+</style>
+{% endblock %}
+{% block map_content %}
+
+
+  <div class="container">
+
+    <div class=" text-center seletion">
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              India
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">India</a>
+              <a class="dropdown-item" href="#">Uttrakhand</a>
+            </div>
+          </div>
+        
+        
+          <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Indicator
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Indicator 1</a>
+              <a class="dropdown-item" href="#">Indicator 2</a>
+            </div>
+          </div>
+        
+          <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Subgroup
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Subgroup 1</a>
+              <a class="dropdown-item" href="#">Subgroup 2</a>
+            </div>
+          </div>
+        
+          <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              timeperiod
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">timeperiod 1</a>
+              <a class="dropdown-item" href="#">timeperiod 2</a>
+            </div>
+          </div>
+        </div>
+    <div class="text-center mapdiv">
+        Map div
+    </div>
+  </div>
+{% endblock %}
